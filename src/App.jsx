@@ -34,16 +34,18 @@ const App = () => {
   const [available, addAvailable] = useState(availableIngredients)
   const [stack,addStack] = useState([])
 
-  const addToBurger = (e,i) => {
-    console.log(e.target.id)
+  const addToBurger = (e) => {
     let burg = availableIngredients[e.target.id]
-    console.log(burg)
+    // console.log(burg)
     addStack([...stack, burg])
-    console.log(stack)
   }
 
-  const removeFromBurger = () => {
-    console.log("burger removed!")
+  const removeFromBurger = (e) => {
+    console.log(typeof e.target.id)
+    console.log(stack[e.target.id])
+    // addStack([...stack.slice(0,e.target.id), ...stack.slice(e.target.id + 1)])
+    //doesn't work, why?
+    addStack(stack.filter((burg, i) =>  i != e.target.id)) // want this to work but how?
   }
 
   return (

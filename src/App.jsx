@@ -1,4 +1,5 @@
 // src/App.jsx
+import { useState } from 'react';
 import IngredientList from './components/IngredientList';
 import BurgerStack from './components/BurgerStack';
 
@@ -30,8 +31,15 @@ export const availableIngredients = [
 
 const App = () => {
 
-  const addToBurger = () => {
-    console.log("burger added!")
+  const [available, addAvailable] = useState(availableIngredients)
+  const [stack,addStack] = useState([])
+
+  const addToBurger = (e,i) => {
+    console.log(e.target.id)
+    let burg = availableIngredients[e.target.id]
+    console.log(burg)
+    addStack([...stack, burg])
+    console.log(stack)
   }
 
   const removeFromBurger = () => {
@@ -42,8 +50,8 @@ const App = () => {
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList availableIngredients={availableIngredients}/>  // add here! 
-        <BurgerStack />
+        <IngredientList availableIngredients={available} addToBurger={addToBurger}/>  // add here! 
+        <BurgerStack stack={stack} removeFromBurger={removeFromBurger}/>
       </section>
     </main>
   );

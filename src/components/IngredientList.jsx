@@ -2,7 +2,7 @@
 const IngredientList = (props) => {
     return <ul>
         {props.availableIngredients.map((ing,i)=>
-            <li key={i} style={{backgroundColor:ing.color}} > {ing.name}</li>
+            <li id={i} style={{backgroundColor:ing.color}} onClick={props.addToBurger}> {ing.name}</li>
         )}
     </ul>;
   };

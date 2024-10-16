@@ -2,12 +2,8 @@
 const IngredientList = (props) => {
     return <ul>
         {props.availableIngredients.map((ing,i)=>
-            <li key={i} style={{color:ing.color}} > {ing.name}</li>
-        )
-        
-        
-        }
-
+            <li key={i} style={{backgroundColor:ing.color}} > {ing.name}</li>
+        )}
     </ul>;
   };
   

@@ -43,9 +43,10 @@ const App = () => {
   const removeFromBurger = (e) => {
     console.log(typeof e.target.id)
     console.log(stack[e.target.id])
-    // addStack([...stack.slice(0,e.target.id), ...stack.slice(e.target.id + 1)])
+    // addStack([...stack.slice(0,[e.target.id]), ...stack.slice([e.target.id + 1])])
     //doesn't work, why?
-    addStack(stack.filter((burg, i) =>  i != e.target.id)) // want this to work but how?
+    addStack(stack.filter((burg, i) =>  i !== parseInt(e.target.id))) // want this to work but how?
+    //next time user parseInt() or Number()
   }
 
   return (
